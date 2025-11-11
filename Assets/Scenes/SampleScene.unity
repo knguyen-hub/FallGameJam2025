@@ -267,7 +267,8 @@ GameObject:
   - component: {fileID: 600352467}
   - component: {fileID: 600352470}
   - component: {fileID: 600352469}
-  - component: {fileID: 600352468}
+  - component: {fileID: 600352472}
+  - component: {fileID: 600352471}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -294,19 +295,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 3, y: 3}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &600352468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600352466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fad98f6e2a148346b9a8b3a1cc9e42b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::WebCam
-  img: {fileID: 600352469}
 --- !u!114 &600352469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -342,6 +330,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 600352466}
   m_CullTransparentMesh: 1
+--- !u!114 &600352471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600352466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a583d4b71bba3549b78c78dd130bc2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OpenCvSharp.Demo.FaceDetectorMine
+  Surface: {fileID: 600352466}
+  faces: {fileID: 4900000, guid: 6b25a0e0227666d40b282be78b80780c, type: 3}
+  eyes: {fileID: 4900000, guid: a1203bc8d0ab3b5469c52993e6874d7a, type: 3}
+  shapes: {fileID: 4900000, guid: 8141d4a0988291c4f9e5fba2a3e448f1, type: 3}
+--- !u!114 &600352472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600352466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1059ab11f70733a4e8900aee50e96ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::OpenCvSharp.Demo.CameraScaler
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
