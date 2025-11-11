@@ -36,13 +36,10 @@ public class Movement : MonoBehaviour
 
         anim.SetBool("run", horizontalInput != 0);
         anim.SetBool("grounded", grounded);
-
-        WebCamDevice[] devices = WebCamTexture.devices;
-        Debug.Log(devices[0].name);
     }
 
     private void Jump() {
-        _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, speed / 2);
+        _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, speed / 1.5f);
         anim.SetTrigger("jump");
         grounded = false;
     }

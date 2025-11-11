@@ -1,13 +1,15 @@
 using UnityEngine;
 using System;
 using System.Collections;
-using UnityEngine;
+using UnityEngine.UI;
 #if UNITY_ANDROID
 using UnityEngine.Android;
 #endif
 
 public class WebCam : MonoBehaviour
 {
+
+    [SerializeField] private RawImage img = default;
 #if UNITY_IOS || UNITY_WEBGL
     private bool CheckPermissionAndRaiseCallbackIfGranted(UserAuthorization authenticationType, Action authenticationGrantedAction)
     {
@@ -74,8 +76,9 @@ public class WebCam : MonoBehaviour
     private void InitializeCamera()
     {
         WebCamTexture webcamTexture = new WebCamTexture();
-        Renderer renderer = GetComponent<Renderer>();
-        renderer.material.mainTexture = webcamTexture;
+        SpriteRenderer renderer = GetComponent<SpriteRenderer>();
         webcamTexture.Play();
+        img.texture= webcamTexture;
+        
     }
 }
