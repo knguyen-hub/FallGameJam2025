@@ -5,6 +5,7 @@ namespace OpenCvSharp.Demo
 	using System.Collections.Generic;
 	using UnityEngine.UI;
 	using OpenCvSharp;
+	using UnityEngine.Tilemaps;
 
 	public class FaceDetectorMine : WebCamera
 	{
@@ -13,6 +14,12 @@ namespace OpenCvSharp.Demo
 		public TextAsset shapes;
 
 		private FaceProcessorLive<WebCamTexture> processor;
+
+		/*
+		tile map stuff
+		*/
+		public Tilemap tilemap;
+		public TileBase tileToPlace;
 
 		/// <summary>
 		/// Default initializer for MonoBehavior sub-classes
@@ -34,7 +41,7 @@ namespace OpenCvSharp.Demo
 
 			// performance data - some tricks to make it work faster
 			processor.Performance.Downscale = 256;          // processed image is pre-scaled down to N px by long side
-			processor.Performance.SkipRate = 0;             // we actually process only each Nth frame (and every frame for skipRate = 0)
+			processor.Performance.SkipRate = 20;             // we actually process only each Nth frame (and every frame for skipRate = 0)
 		}
 
 		/// <summary>
@@ -56,8 +63,23 @@ namespace OpenCvSharp.Demo
 
 				Mat resized = new Mat();
 				Cv2.Resize(submat, resized, new Size(40, 40));
-				
-				Cv2.Threshold(resized, resized, 100, 255, ThresholdTypes.BinaryInv);
+
+				Cv2.Threshold(resized, resized, 100, 255, ThresholdTypes.Binary);
+
+				for (int i = 0; i < resized.Rows; i++) {
+					for (int j = 0; j < resized.Cols; j++) {
+						double[] pixelValue = resized.GetArray(i, j);
+						//Debug.Log($"Pixel value at {i}, {j} is {pixelValue[0]}");
+						Vector3Int cellPosition = new Vector3Int(j, 40-i, 0); 
+						if (Math.Abs(pixelValue[0]) < 0.00001f) {
+							
+							tilemap.SetTile(cellPosition, tileToPlace);
+						} else {
+							tilemap.SetTile(cellPosition, null);
+						}
+						
+					}
+				}
 				
             	output = Unity.MatToTexture(resized, output);
 			}

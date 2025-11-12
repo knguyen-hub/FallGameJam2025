@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 public class Movement : MonoBehaviour
 {
 
-    [SerializeField] private float speed = 10f;
+    [SerializeField] private float speed = 20f;
     
     private float _currentVelocity;
     private Rigidbody2D _rigidbody;
