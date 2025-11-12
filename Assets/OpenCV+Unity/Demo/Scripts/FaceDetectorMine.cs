@@ -21,6 +21,8 @@ namespace OpenCvSharp.Demo
 		public Tilemap tilemap;
 		public TileBase tileToPlace;
 
+		public Slider slider;
+
 		/// <summary>
 		/// Default initializer for MonoBehavior sub-classes
 		/// </summary>
@@ -64,7 +66,9 @@ namespace OpenCvSharp.Demo
 				Mat resized = new Mat();
 				Cv2.Resize(submat, resized, new Size(100, 100));
 
-				Cv2.Threshold(resized, resized, 100, 255, ThresholdTypes.Binary);
+				int val = (int)slider.value;
+
+				Cv2.Threshold(resized, resized, val, 255, ThresholdTypes.Binary);
 
 				for (int i = 0; i < resized.Rows; i++) {
 					for (int j = 0; j < resized.Cols; j++) {
