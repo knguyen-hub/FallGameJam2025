@@ -62,7 +62,7 @@ namespace OpenCvSharp.Demo
 				Cv2.CvtColor(submat, submat, ColorConversionCodes.BGR2GRAY);
 
 				Mat resized = new Mat();
-				Cv2.Resize(submat, resized, new Size(40, 40));
+				Cv2.Resize(submat, resized, new Size(80, 80));
 
 				Cv2.Threshold(resized, resized, 100, 255, ThresholdTypes.Binary);
 
@@ -70,7 +70,7 @@ namespace OpenCvSharp.Demo
 					for (int j = 0; j < resized.Cols; j++) {
 						double[] pixelValue = resized.GetArray(i, j);
 						//Debug.Log($"Pixel value at {i}, {j} is {pixelValue[0]}");
-						Vector3Int cellPosition = new Vector3Int(j, 40-i, 0); 
+						Vector3Int cellPosition = new Vector3Int(j, 80-i, 0); 
 						if (Math.Abs(pixelValue[0]) < 0.00001f) {
 							
 							tilemap.SetTile(cellPosition, tileToPlace);

@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 public class Movement : MonoBehaviour
 {
 
-    [SerializeField] private float speed = 20f;
+    [SerializeField] private float speed = 30f;
     
     private float _currentVelocity;
     private Rigidbody2D _rigidbody;
@@ -46,7 +46,15 @@ public class Movement : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.tag == "Ground") {
-            grounded = true;
+            foreach (ContactPoint2D contact in collision.contacts)
+            {
+                if (Vector2.Dot(contact.normal, Vector2.up) > 0.5f) // Adjust threshold as needed
+                {
+                    grounded = true;
+                    // Perform actions for bottom collision
+                }
+            }
+            //grounded = true;
         }
     }
     
