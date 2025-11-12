@@ -225,7 +225,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 40
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -291,8 +291,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.34, y: 1.38}
-  m_SizeDelta: {x: 5, y: 5}
+  m_AnchoredPosition: {x: 5.3, y: 6.1}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &600352469
 MonoBehaviour:
@@ -721,32 +721,32 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 765478014}
     m_ColliderPaths:
-    - - X: -10000000
-        Y: 10000000
-      - X: -40000000
-        Y: 10000000
-      - X: -40000000
+    - - X: -80000000
+        Y: 80000000
+      - X: -320000000
+        Y: 80000000
+      - X: -320000000
         Y: 0
-      - X: -10000000
+      - X: -80000000
         Y: 0
-    - - X: 30000000
-        Y: -10000000
-      - X: -30000000
-        Y: -10000000
-      - X: -30000000
-        Y: -20000000
-      - X: 30000000
-        Y: -20000000
+    - - X: 240000000
+        Y: -80000000
+      - X: -240000000
+        Y: -80000000
+      - X: -240000000
+        Y: -160000000
+      - X: 240000000
+        Y: -160000000
   m_CompositePaths:
     m_Paths:
-    - - {x: -1.0000293, y: 0}
-      - {x: -1.0000293, y: 1}
-      - {x: -4, y: 0.99997073}
-      - {x: -3.999971, y: 0}
-    - - {x: 2.999971, y: -2}
-      - {x: 2.999971, y: -1}
-      - {x: -3, y: -1.0000293}
-      - {x: -2.999971, y: -2}
+    - - {x: -8.00003, y: 0}
+      - {x: -8.00003, y: 8}
+      - {x: -32, y: 7.9999704}
+      - {x: -31.999971, y: 0}
+    - - {x: 23.999971, y: -16}
+      - {x: 23.999971, y: -8}
+      - {x: -24, y: -8.00003}
+      - {x: -23.999971, y: -16}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
@@ -850,8 +850,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 3.88, y: 0.55}
-  m_SizeDelta: {x: 3, y: 3}
+  m_AnchoredPosition: {x: 19.68, y: 8.97}
+  m_SizeDelta: {x: 30, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &848015891
 Canvas:
@@ -915,8 +915,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 8, y: 8, z: 8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 765478009}
   m_Father: {fileID: 0}
@@ -1025,7 +1025,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 16, y: 16, z: 16}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}

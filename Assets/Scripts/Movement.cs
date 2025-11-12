@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 public class Movement : MonoBehaviour
 {
 
-    [SerializeField] private float speed = 8f;
+    [SerializeField] private float speed = 10f;
     
     private float _currentVelocity;
     private Rigidbody2D _rigidbody;
@@ -25,9 +25,9 @@ public class Movement : MonoBehaviour
         _rigidbody.linearVelocity = new Vector2(horizontalInput* speed, _rigidbody.linearVelocity.y);
 
         if (horizontalInput > 0.01f) {
-            transform.localScale = Vector3.one * 2;
+            transform.localScale = Vector3.one * 16;
         } else if (horizontalInput < -0.01f) {
-            transform.localScale = new Vector3(-1,1,1) * 2;
+            transform.localScale = new Vector3(-1,1,1) * 16;
         }
 
         if (Input.GetKey(KeyCode.Space) && grounded) {
@@ -39,7 +39,7 @@ public class Movement : MonoBehaviour
     }
 
     private void Jump() {
-        _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, speed / 1.5f);
+        _rigidbody.linearVelocity = new Vector2(_rigidbody.linearVelocity.x, speed);
         anim.SetTrigger("jump");
         grounded = false;
     }
