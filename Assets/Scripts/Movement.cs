@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
     private void Awake()
     {
         _rigidbody = GetComponent<Rigidbody2D>();
+        _rigidbody.freezeRotation = true;
         anim = GetComponent<Animator>();
     }
 
@@ -45,17 +46,17 @@ public class Movement : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D collision) {
-        if (collision.gameObject.tag == "Ground") {
+        //if (collision.gameObject.tag == "Ground") {
             foreach (ContactPoint2D contact in collision.contacts)
             {
-                if (Vector2.Dot(contact.normal, Vector2.up) > 0.5f) // Adjust threshold as needed
+                if (Vector2.Dot(contact.normal, Vector2.up) > 0.25f) // Adjust threshold as needed
                 {
                     grounded = true;
                     // Perform actions for bottom collision
                 }
             }
             //grounded = true;
-        }
+        //}
     }
     
 }

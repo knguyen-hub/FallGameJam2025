@@ -62,7 +62,7 @@ namespace OpenCvSharp.Demo
 				Cv2.CvtColor(submat, submat, ColorConversionCodes.BGR2GRAY);
 
 				Mat resized = new Mat();
-				Cv2.Resize(submat, resized, new Size(80, 80));
+				Cv2.Resize(submat, resized, new Size(100, 100));
 
 				Cv2.Threshold(resized, resized, 100, 255, ThresholdTypes.Binary);
 
